@@ -64,8 +64,8 @@ hparams = Map({
 	# this is only valid for mulaw is True
 	'silence_threshold': 2,
 	'num_mels': 80,
-	'fmin': 125,
-	'fmax': 7600,
+	'fmin': 80,
+	'fmax': 8000,
 	'fft_size': 1024,
 	# shift can be specified by either hop_size or frame_shift_ms
 	'hop_size': 256,
