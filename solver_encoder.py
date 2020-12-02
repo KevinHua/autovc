@@ -25,8 +25,7 @@ class Solver(object):
         self.num_iters = config.num_iters
         
         # Miscellaneous.
-        self.use_cuda = torch.cuda.is_available()
-        self.device = torch.device('cuda:0' if self.use_cuda else 'cpu')
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.log_step = config.log_step
 
         # Build the model and tensorboard.

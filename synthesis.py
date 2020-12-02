@@ -12,8 +12,8 @@ from hparams import hparams
 from wavenet_vocoder import builder
 
 torch.set_num_threads(4)
-use_cuda = torch.cuda.is_available()
-device = torch.device("cuda" if use_cuda else "cpu")
+
+device = torch.device("cuda" if torch.cuda.is_available() else 'cpu')
 
 
 def build_model():
