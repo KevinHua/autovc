@@ -18,7 +18,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/split_wav.py",
             "console": "integratedTerminal",
-            "args": ["--audio_path", "E:\\voices\\lele\\videos", "--output_root", "E:\\voices\\lele\\wavs", "--multi_speakers", "1"]
+            "args": ["--audio_path", "E:\\voices\\lele\\videos", "--output_root", "E:\\voices\\lele\\lele_wavs", "--multi_speakers", "1"]
         },
 
     ]
