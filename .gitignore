@@ -1,0 +1,6 @@
+__pycache__/
+wavs/
+spmel/
+*.pth
+*.tar
+*.ckpt
