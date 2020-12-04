@@ -119,6 +119,6 @@ class Solver(object):
                     log += ", {}: {:.4f}".format(tag, loss[tag])
                 print(log)
 
-        if (i+1) % 20000 == 0:
-            torch.save({'model': self.G.state_dict(), 'optimizer': self.g_optimizer.state_dict()}, 'autovc-step{}.ckpt'.format(i+1))
+            if (i+1) % 20000 == 0:
+                torch.save({'model': self.G.state_dict(), 'optimizer': self.g_optimizer.state_dict()}, 'autovc-step{}.ckpt'.format(i+1))
 
