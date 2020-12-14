@@ -1,6 +1,7 @@
 __pycache__/
 wavs/
 spmel/
+melsp-conv/
 *.pth
 *.tar
 *.ckpt
