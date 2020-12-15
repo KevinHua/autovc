@@ -17,7 +17,7 @@ def butter_highpass(cutoff, fs, order=5):
     return b, a
     
     
-def pySTFT(x, fft_length=1024, hop_length=256):
+def pySTFT(x, fft_length, hop_length):
     
     x = np.pad(x, int(fft_length//2), mode='reflect')
     
@@ -35,6 +35,7 @@ def pySTFT(x, fft_length=1024, hop_length=256):
 def log_melsp_01(x,
     sr=16000,
     n_fft=1024,
+    hop_length=256,
     n_mels=80,
     fmin=80,
     fmax=8000):
@@ -51,7 +52,7 @@ def log_melsp_01(x,
     prng = RandomState()
     wav = y * 0.96 + (prng.rand(y.shape[0])-0.5)*1e-06
     # Compute spect
-    D = pySTFT(wav).T
+    D = pySTFT(wav, fft_length=n_fft, hop_length=hop_length).T
     # Convert to mel and normalize
     D_mel = np.dot(D, mel_basis)
     D_db = 20 * np.log10(np.maximum(min_level, D_mel)) - 16
