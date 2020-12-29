@@ -14,8 +14,10 @@ def pad_seq(x, base=32):
     return np.pad(x, ((0,len_pad),(0,0)), 'constant'), len_pad
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-#G = Generator(32,256,512,32).eval().to(device)
-G = Generator(16,256,512,16).eval().to(device)
+G = Generator(32,256,512,32).eval().to(device)
+# original configure
+# cause error: 
+#G = Generator(16,256,512,16).eval().to(device)
 
 g_checkpoint = torch.load('autovc-step1000000.ckpt', map_location=device)
 G.load_state_dict(g_checkpoint['model'])

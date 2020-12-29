@@ -54,6 +54,11 @@ for speaker in sorted(subdirList):
         tmp = np.load(os.path.join(dirName, speaker, fileList[idx_uttrs[i]]))
         if i == 0:
             test_org = tmp
+            print(test_org.shape)
+        # only first utterance
+        #else:
+        #    test_org = np.append(test_org, tmp, axis=0)
+        #    print(test_org.shape)
 
         candidates = np.delete(np.arange(len(fileList)), idx_uttrs)
         # choose another utterance if the current one is too short
@@ -69,8 +74,9 @@ for speaker in sorted(subdirList):
         if i == 0:
             emb_org = emb.detach().squeeze().cpu().numpy()
 
-    #utterances.append(np.mean(embs, axis=0))
-    utterances.append(emb_org)
+    # voice embedding and wave melsp
+    utterances.append(np.mean(embs, axis=0))
+    #utterances.append(emb_org)
     utterances.append(test_org)
     
     # create file list
